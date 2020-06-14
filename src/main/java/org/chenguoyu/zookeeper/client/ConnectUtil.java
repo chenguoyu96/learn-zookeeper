@@ -12,6 +12,7 @@ public class ConnectUtil {
 
         ZooKeeper zookeeper = null;
         try {
+            // 如果要连接集群，以 , 分隔即可
             zookeeper = new ZooKeeper("192.168.223.133:2181", 5000, (WatchedEvent x) -> {
                 if (x.getState() == Watcher.Event.KeeperState.SyncConnected) {
                     System.out.println("连接成功");
